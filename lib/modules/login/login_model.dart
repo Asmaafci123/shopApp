@@ -1,25 +1,25 @@
 class LoginModel
 {
-  late bool status;
-  late String message;
+  bool? status;
+  String? message;
   UserData? data;// may given null
   LoginModel.fromJson(Map<String,dynamic> json)
   {
     status=json['status'];
     message=json['message'];
-    data=json['data']?UserData.fromJson(json['data']):null;
+    data=json['data']!=null?UserData.fromJson(json['data']):null;
   }
 }
 
 class UserData
 {
- late int id;
- late String name;
- late String email;
- late String image;
- late int points;
- late int credits;
- late String token;
+ int? id;
+ String? name;
+ String? email;
+ String? image;
+ int? points;
+ int? credit;
+ String? token;
  UserData.fromJson(Map<String,dynamic> json)
  {
    id=json['id'];
@@ -27,7 +27,7 @@ class UserData
    email=json['email'];
    image=json['image'];
    points=json['points'];
-   credits=json['credits'];
+   credit=json['credit'];
    token=json['token'];
  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopapp/layout/login_screen.dart';
+import 'package:shopapp/network/local/cache_helper.dart';
 
 class OnBoardingScreen extends StatefulWidget {
 
@@ -33,14 +34,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         appBar: AppBar(
           actions: [
             TextButton(
-                onPressed: (){
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context)=>LoginScreen()
-                      ),
-                          (route) => false);
-                },
+                onPressed: submit,
                 child: Text(
                   'SKIP',
                   style: TextStyle(
@@ -109,6 +103,22 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       ],
     );
   }
+  void submit()
+  {
+    CacheHelper.saveData(key: 'onBoarding', value: true).
+    then((value) {
+      if(value)
+        {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                  builder: (context)=>LoginScreen()
+              ),
+                  (route) => false);
+        }
+    });
+
+  }
 
   Widget buildButton(String text,BuildContext context)
   {
@@ -128,12 +138,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           if(isLast)
           {
            // Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                    builder: (context)=>LoginScreen()
-                ),
-                    (route) => false);
+           submit();
           }
           boardingController.nextPage(
               duration: Duration(milliseconds: 800),
