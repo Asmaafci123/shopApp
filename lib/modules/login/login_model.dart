@@ -20,6 +20,7 @@ class UserData
  int? points;
  int? credit;
  String? token;
+ String? phone;
  UserData.fromJson(Map<String,dynamic> json)
  {
    id=json['id'];
@@ -29,5 +30,6 @@ class UserData
    points=json['points'];
    credit=json['credit'];
    token=json['token'];
+   phone=json['phone'];
  }
 }

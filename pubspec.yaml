@@ -38,6 +38,7 @@ dependencies:
   flutter_bloc: ^7.3.0
   fluttertoast: ^8.0.1-nullsafety.0
   shared_preferences: ^2.0.8
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:

@@ -60,7 +60,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
                   });
                 },
-                itemBuilder: (context, index) => buildItem(),
+                itemBuilder: (context, index) => buildItem(boarding[index]),
                 itemCount: boarding.length,
                 physics: BouncingScrollPhysics(),
                 controller: boardingController,
@@ -81,24 +81,24 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ));
   }
 
-  Widget buildItem() {
+  Widget buildItem(BoardingItem item) {
     return Column(
       children: [
         Expanded(
           child: Image(
-            image: AssetImage('assets/images/shopApp1.jpg'),
+            image: AssetImage(item.img),
           ),
         ),
         Text(
-          'Asmaa',
+          item.title,
           style: TextStyle(color:Color(0xFF6538A3),fontWeight: FontWeight.bold, fontSize: 24),
         ),
         SizedBox(
           height: 30,
         ),
         Text(
-          'Asmaa',
-          style: TextStyle(fontWeight:FontWeight.w100,fontSize: 16),
+          item.body,
+          style: TextStyle(color:Color(0xFF6538A3),fontWeight:FontWeight.w100,fontSize: 16),
         )
       ],
     );
@@ -126,7 +126,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     return FloatingActionButton(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),
-        backgroundColor: Color(0xFF6538A3),
+        backgroundColor: Color(0xFF9400D2),
         child:Text(
             text,
             style: TextStyle(

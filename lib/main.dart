@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopapp/layout/home_screen.dart';
 import 'package:shopapp/layout/login_screen.dart';
 import 'package:shopapp/network/local/cache_helper.dart';
+import 'package:shopapp/shared/components/constents.dart';
 import 'package:shopapp/shared/cubit/cubit.dart';
 import 'package:shopapp/shared/cubit/states.dart';
 import 'layout/onbording_screen.dart';
@@ -14,8 +15,9 @@ main()async
   WidgetsFlutterBinding.ensureInitialized();// ensure that all await is done before runApp
   DioHelper.init();
   await CacheHelper.init();
-  bool? onBoarding=CacheHelper.getData(key: 'onBoarding');
-  String? token=CacheHelper.getData(key: 'token');
+  dynamic onBoarding=CacheHelper.getData(key: 'onBoarding');
+  token=await CacheHelper.getData(key: 'token');
+  print(token);
   Widget startWidget;
   if(onBoarding!=null)
     {
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (BuildContext context) => AppCubit()..getHomeData(),
+        create: (BuildContext context) => AppCubit()..getHomeData()..getCategoriesData()..getFavouritesData()..getUserData(),//cascate
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: lightTheme,

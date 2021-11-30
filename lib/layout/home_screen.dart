@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopapp/layout/search/search_screen.dart';
 import 'package:shopapp/shared/cubit/cubit.dart';
 import 'package:shopapp/shared/cubit/states.dart';
 
@@ -17,7 +18,12 @@ class HomeScreen extends StatelessWidget {
             appBar: AppBar(
               actions: [
                 IconButton(
-                    onPressed: (){}, icon: Icon(Icons.search))
+                    onPressed: (){
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context)=>SearchScreen()));
+                    }, icon: Icon(Icons.search))
               ],
             ),
             body: cubit.bottomScreen[cubit.currentIndex],
@@ -27,10 +33,10 @@ class HomeScreen extends StatelessWidget {
                 BottomNavigationBarItem(
                     icon:Icon(Icons.home,),
                     label: '',
-                activeIcon: Icon(Icons.home,color: Color(0xFF6538A3),)),
-                BottomNavigationBarItem(icon:Icon(Icons.category),label: '',activeIcon: Icon(Icons.category,color: Color(0xFF6538A3),)),
-                BottomNavigationBarItem(icon:Icon(Icons.favorite),label: '',activeIcon: Icon(Icons.favorite,color: Color(0xFF6538A3),)),
-                BottomNavigationBarItem(icon:Icon(Icons.settings),label: '',activeIcon: Icon(Icons.settings,color: Color(0xFF6538A3),))
+                activeIcon: Icon(Icons.home,color: Color(0xFF9400D2),)),
+                BottomNavigationBarItem(icon:Icon(Icons.category),label: '',activeIcon: Icon(Icons.category,color: Color(0xFF9400D2),)),
+                BottomNavigationBarItem(icon:Icon(Icons.favorite),label: '',activeIcon: Icon(Icons.favorite,color: Color(0xFF9400D2),)),
+          //      BottomNavigationBarItem(icon:Icon(Icons.settings),label: '',activeIcon: Icon(Icons.settings,color: Color(0xFF9400D2),))
               ],
               onTap: (index)
               {

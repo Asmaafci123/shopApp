@@ -84,6 +84,7 @@ class LoginScreen extends StatelessWidget {
                                   TextFormField(
                                     controller: emailController,
                                     keyboardType: TextInputType.emailAddress,
+                                    style: TextStyle(color: Colors.white),
                                     decoration: InputDecoration(
                                         hintStyle: TextStyle(
                                             color: Colors.white,
@@ -97,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                                         border: OutlineInputBorder(
                                           borderRadius: BorderRadius.circular(20),
                                         ),
-                                        fillColor: Color(0xFF6538A3),
+                                        fillColor: Color(0xFF9400D2),
                                         filled: true),
                                     onChanged: (String value) {
                                       if (value.isEmpty) return;
@@ -107,6 +108,7 @@ class LoginScreen extends StatelessWidget {
                                     height: 20,
                                   ),
                                   TextFormField(
+                                    style: TextStyle(color: Colors.white),
                                     onFieldSubmitted: (value) {
                                       LoginCubit.get(context).userLogin(
                                           email: emailController.text,
@@ -132,7 +134,7 @@ class LoginScreen extends StatelessWidget {
                                         border: OutlineInputBorder(
                                           borderRadius: BorderRadius.circular(20),
                                         ),
-                                        fillColor: Color(0xFF6538A3),
+                                        fillColor: Color(0xFF9400D2),
                                         filled: true),
                                     onChanged: (String value) {
                                       if (value.isEmpty) return;
@@ -159,7 +161,7 @@ class LoginScreen extends StatelessWidget {
                                         shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(20.0))),
-                                        backgroundColor: Color(0xFF6538A3),
+                                        backgroundColor: Color(0xFF9400D2),
                                         child: Text('LOGIN',
                                             style: TextStyle(
                                                 fontSize: 20,
@@ -186,7 +188,7 @@ class LoginScreen extends StatelessWidget {
                                           child: Text(
                                             'Sign Up',
                                             style: TextStyle(
-                                                color: Color(0xFF6538A3),
+                                                color: Color(0xFF9400D2),
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 18),
                                           ))
