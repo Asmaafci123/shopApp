@@ -17,4 +17,5 @@ samples, guidance on mobile development, and a full API reference.
 ### Screenshots
 #### LightMode
 ![Screenshot_1638273589](https://user-images.githubusercontent.com/62202902/144046094-4fd79725-a8af-4be5-9356-de964b8fe071.png)
+![Screenshot_1638273597](https://user-images.githubusercontent.com/62202902/144046255-6dfc1bad-b41f-4c52-b7fa-d7ad66ce4a6a.png)
 
